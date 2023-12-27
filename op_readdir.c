@@ -55,7 +55,7 @@ int op_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
         /* Providing offset to the filler function seems slower... */
         get_printable_name(name_buf, dentry);
         if (name_buf[0]) {
-            if (filler(buf, name_buf, NULL, offset) != 0) break;
+            if (filler(buf, name_buf, NULL, 0) != 0) break;
         }
     }
     inode_dir_ctx_put(dctx);
