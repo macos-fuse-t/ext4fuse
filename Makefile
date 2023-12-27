@@ -4,9 +4,9 @@ endif
 
 VERSION  = $(shell git describe --tags 2> /dev/null || basename `pwd`)
 
-CFLAGS  += $(shell pkg-config fuse --cflags) -DFUSE_USE_VERSION=26 -std=gnu99 -g3 -Wall -Wextra
+CFLAGS  += $(shell pkg-config fuse-t --cflags) -DFUSE_USE_VERSION=26 -std=gnu99 -g3 -Wall -Wextra
 CFLAGS  += -DEXT4FUSE_VERSION=\"$(VERSION)\"
-LDFLAGS += $(shell pkg-config fuse --libs)
+LDFLAGS += $(shell pkg-config fuse-t --libs)
 
 ifeq ($(shell uname), Darwin)
 CFLAGS  += -mmacosx-version-min=10.5
